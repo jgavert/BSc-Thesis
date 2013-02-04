@@ -10,3 +10,14 @@ test*
 *.pdf
 *.synctex.gz
 *.toc
+referaatti/*.out
+referaatti/*.zip
+referaatti/*.aux
+referaatti/*.bbl
+referaatti/*.blg
+referaatti/*.fdb_latexmk
+referaatti/*.fls
+referaatti/*.log
+referaatti/*.pdf
+referaatti/*.synctex.gz
+referaatti/*.toc
