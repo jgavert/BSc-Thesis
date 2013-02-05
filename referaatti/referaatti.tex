@@ -69,14 +69,14 @@
 % abstract pages. The following entries should be always specified:
 
 \title{Välimuistiriippumattomat B-puut}
-\author{Juho Gävert}
+\author{Juho-Emil Antti Gävert}
 \date{\today}
 \level{Referaatti}
 \abstract{Tiivistelmä.}
 
 % The following can be used to specify keywords and classification of the paper:
 
-\keywords{avainsana 1, avainsana 2}
+\keywords{algoritmit, välimuistiriippumatonmalli, B-puut}
 \classification{} % classification according to ACM Computing Classification System (http://www.acm.org/about/class/)
                   % This is probably mostly relevant for computer scientists
 
@@ -113,26 +113,28 @@
 
 % --- Main matter ---
 
-\section{asd}
+\section{Välimuistiriippumattomat B-puut}
 
 % Write some science here.
 
 Michael A. Bender, Erik D. Demaine ja Martin Farach-Colton ovat kirjoittaneet
 artikkelin 'Cache-Oblivious B-Trees', joka on julkastu artikkelina SIAM Journal
-on Computing Vol 35. No 2. pp 341-358. Artikkelissa käsitellään välimuistiriip-
-pumattomia tietorakenteita ja erityisesti miten he ovat saaneet tehtyä 2 väli-
-muistiriippumattomaa B-puuta.
-  Ohjelmoinnin opiskelun alussa opetellaan myös tietorakenteita. Näissä tieto-
-rakenteissa puhutaan suoritusaika analyyseistä ja muistinkulutuksesta, mutta
-niissä on yleinen vika ja se johtuu siitä kuinka tietokoneet ovat kehittyneet.
-Aikaisemmin tietokoneissa ei ollut kuin välimuisti ja kovalevy, eli käsitellään
-2-tasoisena muistihierarkiana. Nykyisissä koneissa on monia välimuistitasoja
-joka edellyttäisi, että ne pitäisi ottaa huomioon tietorakenteiden suunnit-
-telussa. Myös tätä korostaa se, että eri välimuisti tasot ovat eri nopeuksisia
-joten välimuistien tehokas käyttö on haastavaa. (On olemassa välimuistimalleja,
-jotka yrittävät ennakoida välimuistihierarkian vaikutuksen algoritmeihin, mutta
-nämä mallit olettavat muistinkannalta pullonkaulan olevan tiedossa.)
-  Ratkaisu ongelmaan on välimuisti-riippumaton -malli. Mallin teoria perustuu
+on Computing Vol 35. No 2. pp 341-358. Artikkelissa käsitellään
+välimuistiriippumattomia tietorakenteita ja erityisesti miten he ovat saaneet
+tehtyä 2 välimuistiriippumattomaa B-puuta.
+\newline \indent Ohjelmoinnin opiskelun alussa opetellaan tietorakenteita.
+Näissä tietorakenteissa puhutaan suoritusaika analyysistä ja
+muistinkulutuksesta. Niissä on yleinen vika, joka johtuu tietokoneiden nopeasta
+kehittymisestä ja materiaalin nopeasta vanhentumisesta. Ensimmäisissä
+tietokoneissa ei ollut kuin välimuisti ja kovalevy. Muistihierarkia käsitti
+koostui siis vain 2:sta tasosta. Nykyisissä koneissa on monia välimuistitasoja
+joka edellyttää, että ne pitäisi ottaa huomioon tietorakenteiden
+suunnittelussa. Tätä korostaa välimuistitasojen eri nopeudet. Siis välimuistien
+tehokas käyttö on haastavaa. On olemassa välimuistimalleja, jotka yrittävät
+ennakoida välimuistihierarkian vaikutuksen algoritmeihin, mutta nämä mallit
+olettavat muistinkannalta pullonkaulan olevan tiedossa ja ne ovat yleensä tehty
+jollekkin tietylle välimuistihierarkialle.
+\newline \indent Ratkaisu ongelmaan on välimuisti-riippumaton -malli. Mallin teoria perustuu
 ihanteelliseen-välimuisti malliin jossa käsitellään muistia kaksitasoisena
 muistihierarkiana, mutta malli toimii mille tahansa muistihierarkialle. (Frigo
 ja Prokop esittelivät tämän mallin papereissaan, joissa he esittelevät kuinka
@@ -152,25 +154,25 @@ muistilohko.) Frigo näyttää paperissaan, että näin voidaan simuloida mitä
 tahansa muistihierarkiaa( pienellä vakiokerroin overheadilla). Siis voidaan
 laskea välimuisti-riippumattomien mallien muistin käyttöä ihanteellisella
 välimuistimallilla.
-  B-puun suunnittelu välimuisti-riippumattomaksi on hankalaa, koska puu
+\newline \indent B-puun suunnittelu välimuisti-riippumattomaksi on hankalaa, koska puu
 itsessään on suunniteltu kaksitasoiselle muistihierarkialle. Joko optimoiduksi
 levylle kirjoituksia varten tai välimuistin kannalta. Tämän muuttaminen mille
 tahansa muistihierarkialle optimoiduksi on haaste.
-  Välimuisti-riippumattoman mallin avulla voidaan ratkaista tämä ongelma.
+\newline \indent Välimuisti-riippumattoman mallin avulla voidaan ratkaista tämä ongelma.
 Kehitettiin 2 B-puuta seuraavilla muistisiirto rajoilla. Ensimmäinen puu sai
 haku operaation muistirajoiksi B-puun hakurajan. Päivitys operaation rajaksi
 saatiin sama kuin B-puiden raja, missä B-puun raja on pahin tapaus. Toisessa
 hakupuussa lisätään skannaus operaatio. Puun haku operaatio on edelleen sama
 kuin tyypillisen B-puun. Skannaus -operaatio saavutti optimaalisen
 muistikäytön. Päivitys operaatio sai rajan (INSERT ANALYZED MEMORY).
-  Välimuisti-riippumaton puu on yksikertaisuudessaan AVL-puu missä sen
+\newline \indent Välimuisti-riippumaton puu on yksikertaisuudessaan AVL-puu missä sen
 N määrä elementtejä on jaettu ryhmiin joissa on O(log N) elementtiä. Ryhmät on
 tallennettu joukkoon jonka koko on myös O(log N). Jokainen elementti puussa
 siis pitää sisällään pointterin sitä vastaavaan ryhmä joukkoon ja toisinpäin.
 Mutta tämä johtaa siihen että etsiminen tässä puussa myös maksaa O(log N)
 muistisiirtoja. Tarkoituksena on että meillä on suhteellisen hitaat lisäykset
 ja poistot ylimmässä osaa puuta, mutta meillä pitäisi olla nopeat etsinnät.
-  Yläpuun kompleksisuus halutaan pitää suurinpiirteisessä van Emde
+\newline \indent Yläpuun kompleksisuus halutaan pitää suurinpiirteisessä van Emde
 Boas -sommitelmassa. Van Emde Boas -sommitelma on käytännössä muokattu versio
 Prokopin sommitelmasta täydelliselle binääri puulle. Nimi tulee kuitenkin van
 Emde Boas tietorakenteesta, jota se muistuttaa. Van Emde Boas -sommitelman
@@ -184,7 +186,7 @@ jälkeläisten jako pitääkseen elementit tasapainossa ja toiseksi tarvitaan
 vahvaa tasapainotusta. Jollekkin vakiolle d, jokaisessa elementissä v
 korkeudessa h on (O)(d potenssiin h) jälkeläistä. Nämä kaksi ominaisuutta
 löytyy mm. tasapainotetusta B-puusta. ....
-  Keskiosa puuta tallentaa edustuselementit alemmasta osasta puuta, joista osa
+\newline \indent Keskiosa puuta tallentaa edustuselementit alemmasta osasta puuta, joista osa
 voi olla kummitus elementtejä kuten myös keskitason elementeistä osa voi olla.
 Myös yläosassa puuta voi olla kummituselementtejä. Keskitaso on implementoitu
 yhtenä pakattuna-muisti rakenteena, missä edustus elementit toimivat ryhmien
@@ -209,8 +211,8 @@ kirjoitetaan. ....
 %
 % instead.
 
-\bibliographystyle{babplain}
-\bibliography{references-fi}
+% \bibliographystyle{babplain}
+% \bibliography{references-fi}
 
 
 \end{document}
