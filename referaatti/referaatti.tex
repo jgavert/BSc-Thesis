@@ -113,7 +113,7 @@
 
 % --- Main matter ---
 
-\section{Välimuistiriippumattomat B-puut}
+\section*{Välimuistiriippumattomat B-puut}
 
 % Write some science here.
 
@@ -206,7 +206,15 @@ kaksi erilaista puuta riippuen tarpeesta, järjestetty tai järjestämätön B-p
 Järjestetty tukee skannausta optimaalisesti. Molemmissa puissa haku operaatio vaatii
 \(O(1+\log_{B+1}N)\) muistisiirtoa. Järjestetyn B-puun päivittäminen maksaa
 \(O(1+\log_{B+1}N+\tfrac{\log^2 N}{B})\) muistisiirtoja. Missä itsessään päivitys
-siis maksaa vain \(O(1+\tfrac{\log^2 N}{B})\).
+ilman hakua siis maksaa vain \(O(1+\tfrac{\log^2 N}{B})\). Järjestämättömässä B-puussa
+päivitys maksaa \(O(1+\log_{B+1}N)\) amortisoituja muistisiirtoja. Nämä puut edustava ensimmäisiä dynaamisia
+välimuistiriippumattomia B-puita.
+\newline \indent On olemassa myös erilaisia lähestymistapoja välimuistiriippumattomiin B-puihin.
+Yksi niistä perustuu ideaan bufferielementeistä. Käyttämättä epäsuoriaviittauksia
+ja säilyttämällä puun pakatussamuisti joukossa. Idea perustuu että voidaan säilyttää
+eri kokoista dataa yhdessä pakatussajoukossa. Tämä järjestetty puu sai seuraavat optimaaliset rajat:
+haku \(O(\log_{B+1}N)\) muistisiirtoa, päivittäminen \(O(\log_{B+1}N)\) amortisoituja muistisiirtoja, Skannata \(S\) määrä elementtejä
+vie \(O(1+S/B)\) amortisoituja muistisiirtoja.
 
 % \cite{esimerkki}.
 
