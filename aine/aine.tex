@@ -71,7 +71,7 @@
 \title{Välimuistiriippumattomat B-puut}
 \author{Juho-Emil Antti Gävert}
 \date{\today}
-\level{Referaatti}
+\level{Aine}
 \abstract{Tiivistelmä.}
 
 % The following can be used to specify keywords and classification of the paper:
@@ -105,37 +105,28 @@
 % --- Front matter ---
 
 \maketitle        % title page
-\makeabstract     % abstract page
+%\makeabstract     % abstract page
 
-% \tableofcontents  % table of contents
+\tableofcontents  % table of contents
 \newpage          % clear page after the table of contents
 
 
 % --- Main matter ---
 
-\section*{Välimuistiriippumattomat B-puut}
+\section{Johdanto}
 
 % Write some science here.
 
-Michael A. Bender, Erik D. Demaine ja Martin Farach-Colton ovat kirjoittaneet
-artikkelin 'Cache-Oblivious B-Trees', joka on julkastu artikkelina SIAM Journal
-on Computing Vol 35. No 2. pp 341-358. Artikkelissa käsitellään
-välimuistiriippumattomia tietorakenteita ja erityisesti miten he ovat saaneet
-tehtyä kaksi välimuistiriippumatonta B-puuta.
-\newline \indent Ohjelmoinnin opiskelun alussa opetellaan tietorakenteita.
-Näissä tietorakenteissa puhutaan suoritusaika analyysistä ja
-muistinkulutuksesta. Niissä on yleinen vika, joka johtuu tietokoneiden nopeasta
-kehittymisestä ja materiaalin nopeasta vanhentumisesta. Ensimmäisissä
-tietokoneissa ei ollut kuin välimuisti ja kovalevy. Muistihierarkia käsitti
-koostui siis vain 2:sta tasosta. Nykyisissä koneissa on monia välimuistitasoja
-joka edellyttää, että ne pitäisi ottaa huomioon tietorakenteiden
-suunnittelussa. Tätä korostaa välimuistitasojen eri nopeudet. Siis välimuistien
-tehokas käyttö on haastavaa. On olemassa välimuistimalleja, jotka yrittävät
-ennakoida välimuistihierarkian vaikutuksen algoritmeihin, mutta nämä mallit
-olettavat muistinkannalta pullonkaulan olevan tiedossa ja ne ovat yleensä tehty
-jollekkin tietylle välimuistihierarkialle.
+\cite{btree05}
 
-% \cite{esimerkki}.
+\subsection{Välimuistiriippumaton -malli}
+\subsection{B-puut}
+\subsection{Muuta}
+\section{Rakenteen osia}
+\subsection{Van Emde Boas -sommitelma}
+\subsection{Hakupuut}
+\subsection{Pakattumuisti joukko}
+\section{}
 
 
 % --- Back matter ---
@@ -148,8 +139,8 @@ jollekkin tietylle välimuistihierarkialle.
 %
 % instead.
 
-% \bibliographystyle{babplain}
-% \bibliography{references-fi}
+\bibliographystyle{babplain}
+\bibliography{references-fi}
 
 
 \end{document}
