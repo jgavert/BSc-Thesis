@@ -1,0 +1,236 @@
+% --- Template for thesis / report with tktltiki2 class ---
+
+\documentclass[finnish]{tktltiki2}
+
+% tktltiki2 automatically loads babel, so you can simply
+% give the language parameter (e.g. finnish, swedish, english, british) as
+% a parameter for the class: \documentclass[finnish]{tktltiki2}.
+% The information on title and abstract is generated automatically depending on
+% the language, see below if you need to change any of these manually.
+%
+% Class options:
+% - grading                 -- Print labels for grading information on the front page.
+% - disablelastpagecounter  -- Disables the automatic generation of page number information
+%                              in the abstract. See also \numberofpagesinformation{} command below.
+%
+% The class also respects the following options of article class:
+%   10pt, 11pt, 12pt, final, draft, oneside, twoside,
+%   openright, openany, onecolumn, twocolumn, leqno, fleqn
+%
+% The default font size is 11pt. The paper size used is A4, other sizes are not supported.
+%
+% rubber: module pdftex
+
+% --- General packages ---
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsfonts,amsmath,amssymb,amsthm,booktabs,color,enumitem,graphicx}
+\usepackage[pdftex,hidelinks]{hyperref}
+
+% Automatically set the PDF metadata fields
+\makeatletter
+\AtBeginDocument{\hypersetup{pdftitle = {\@title}, pdfauthor = {\@author}}}
+\makeatother
+
+% --- Language-related settings ---
+%
+% these should be modified according to your language
+
+% babelbib for non-english bibliography using bibtex
+\usepackage[fixlanguage]{babelbib}
+\selectbiblanguage{finnish}
+
+% add bibliography to the table of contents
+\usepackage[nottoc,numbib]{tocbibind}
+% tocbibind renames the bibliography, use the following to change it back
+\settocbibname{Lähteet}
+
+% --- Theorem environment definitions ---
+
+\newtheorem{lau}{Lause}
+\newtheorem{lem}[lau]{Lemma}
+\newtheorem{kor}[lau]{Korollaari}
+
+\theoremstyle{definition}
+\newtheorem{maar}[lau]{Määritelmä}
+\newtheorem{ong}{Ongelma}
+\newtheorem{alg}[lau]{Algoritmi}
+\newtheorem{esim}[lau]{Esimerkki}
+
+\theoremstyle{remark}
+\newtheorem*{huom}{Huomautus}
+
+
+% --- tktltiki2 options ---
+%
+% The following commands define the information used to generate title and
+% abstract pages. The following entries should be always specified:
+
+\title{Välimuistiriippumattomat B-puut}
+\author{Juho-Emil Antti Gävert}
+\date{\today}
+\level{Referaatti}
+\abstract{Tiivistelmä.}
+
+% The following can be used to specify keywords and classification of the paper:
+
+\keywords{algoritmit, välimuistiriippumatonmalli, B-puut}
+\classification{} % classification according to ACM Computing Classification System (http://www.acm.org/about/class/)
+                  % This is probably mostly relevant for computer scientists
+
+% If the automatic page number counting is not working as desired in your case,
+% uncomment the following to manually set the number of pages displayed in the abstract page:
+%
+% \numberofpagesinformation{16 sivua + 10 sivua liitteissä}
+%
+% If you are not a computer scientist, you will want to uncomment the following by hand and specify
+% your department, faculty and subject by hand:
+%
+% \faculty{Matemaattis-luonnontieteellinen}
+% \department{Tietojenkäsittelytieteen laitos}
+% \subject{Tietojenkäsittelytiede}
+%
+% If you are not from the University of Helsinki, then you will most likely want to set these also:
+%
+% \university{Helsingin Yliopisto}
+% \universitylong{HELSINGIN YLIOPISTO --- HELSINGFORS UNIVERSITET --- UNIVERSITY OF HELSINKI} % displayed on the top of the abstract page
+% \city{Helsinki}
+%
+
+
+\begin{document}
+
+% --- Front matter ---
+
+\maketitle        % title page
+\makeabstract     % abstract page
+
+% \tableofcontents  % table of contents
+\newpage          % clear page after the table of contents
+
+
+% --- Main matter ---
+
+\section*{Välimuistiriippumattomat B-puut}
+
+% Write some science here.
+
+Michael A. Bender, Erik D. Demaine ja Martin Farach-Colton ovat kirjoittaneet
+artikkelin 'Cache-Oblivious B-Trees', joka on julkastu artikkelina SIAM Journal
+on Computing Vol 35. No 2. pp 341-358. Artikkelissa käsitellään
+välimuistiriippumattomia tietorakenteita ja erityisesti miten he ovat saaneet
+tehtyä kaksi välimuistiriippumatonta B-puuta.
+\newline \indent Ohjelmoinnin opiskelun alussa opetellaan tietorakenteita.
+Näissä tietorakenteissa puhutaan suoritusaika analyysistä ja
+muistinkulutuksesta. Niissä on yleinen vika, joka johtuu tietokoneiden nopeasta
+kehittymisestä ja materiaalin nopeasta vanhentumisesta. Ensimmäisissä
+tietokoneissa ei ollut kuin välimuisti ja kovalevy. Muistihierarkia käsitti
+koostui siis vain 2:sta tasosta. Nykyisissä koneissa on monia välimuistitasoja
+joka edellyttää, että ne pitäisi ottaa huomioon tietorakenteiden
+suunnittelussa. Tätä korostaa välimuistitasojen eri nopeudet. Siis välimuistien
+tehokas käyttö on haastavaa. On olemassa välimuistimalleja, jotka yrittävät
+ennakoida välimuistihierarkian vaikutuksen algoritmeihin, mutta nämä mallit
+olettavat muistinkannalta pullonkaulan olevan tiedossa ja ne ovat yleensä tehty
+jollekkin tietylle välimuistihierarkialle.
+\newline \indent Ratkaisu ongelmaan on välimuistiriippumaton malli. Mallin teoria perustuu
+ihanteelliseen välimuistimalliin. Mallissa käsitellään muistia kaksitasoisena
+muistihierarkiana, mutta malli toimii mille tahansa muistihierarkialle. Frigo
+ja Prokop esittelivät tämän mallin papereissaan. Niisä he esittelevät kuinka
+ongelmille kuten, nopea Fourier muunnos ja matriisi kertolaskuun löytyy
+optimaaliset algoritmit jotka ovat välimuistiriippumattomia. Nämä algoritmit
+suorittavat asymptoottisesti optimaalisen määrän muistisiirtoja millä tahansa
+muistihierarkialla ja kaikilla tasoilla hierarkiassa. Välimuistiriippumatonmalli
+perustuu ideaan missä käsitellään 2-tasoista muistihierarkiaa. Päämuisti
+on jaettu johonkin \(B\) määrään muistisoluihin ja välimuistilla on koko \(M\) ja se
+voi säilyttää \(M/B\) määrän muistilohkoja. \(M/B\):n arvo on myös tarpeeksi suuri.
+\(M\) ja \(B\) arvot ovat tuntemattomia algoritmille tai tietorakenteelle. Algoritmi
+ei huolehdi muistista erityisesti. (Kun algoritmi yrittää päästä muistipaikkaan
+joka ei ole välimuistissa niin tällöin järjestelmä hakee kyseisen muistilohkon
+välimuistiin ja tätä kutsutaan muistisiirroksi. Jos välimuisti on täynnä niin
+korvataan muistin tulevaisuuden käytön kannalta optimaalisesti valittu
+muistilohko.) Frigo näyttää paperissaan, että näin voidaan simuloida mitä
+tahansa muistihierarkiaa( pienellä vakiokerroin overheadilla). Siis voidaan
+laskea välimuisti-riippumattomien mallien muistin käyttöä ihanteellisella
+välimuistimallilla.
+\newline \indent B-puun suunnittelu välimuisti-riippumattomaksi on hankalaa, koska puu
+itsessään on suunniteltu kaksitasoiselle muistihierarkialle. Joko optimoiduksi
+levylle kirjoituksia varten tai välimuistin kannalta. Tämän muuttaminen mille
+tahansa muistihierarkialle optimoiduksi on haaste.
+\newline \indent Välimuisti-riippumattoman mallin avulla voidaan ratkaista tämä ongelma.
+Kehitettiin kaksi B-puuta seuraavilla muistisiirto rajoilla. Ensimmäinen puu sai
+haku operaation muistirajoiksi B-puun hakurajan \(O(1 + \log_{B+1} N)\). Päivitys operaation rajaksi
+saatiin sama kuin B-puiden rajan eli \(O(1 + \log_{B+1} N)\). Toisessa
+hakupuussa lisätään skannaus operaatio. Puun haku operaatio on edelleen sama
+kuin tyypillisen B-puun eli \(O(1 + \log_{B+1} N)\). Skannaus -operaatio saavutti optimaalisen
+muistikäytön \(O(1+S/B)\). Päivitys operaatio sai rajan
+\(O(1+\log_{B+1}N+\tfrac{\log^2 N}{B})\).
+\newline \indent Välimuistiriippumaton puu koostuu monesta eri osasta, mutta
+perusrakenteeltaan hyvin AVL-puuta vastaava. Puun
+\(N\) määrä elementtejä on jaettu ryhmiin, joissa on \(O(\log N)\) elementtiä. Ryhmät on
+tallennettu joukkoon, jonka koko on myös \(O(\log N)\). Jokainen elementti puussa
+siis pitää sisällään pointterin sitä vastaavaan ryhmä joukkoon ja toisinpäin.
+Mutta tämä johtaa siihen että etsiminen tässä puussa myös maksaa \(O(log N)\)
+muistisiirtoja. Haluamme, että meillä on suhteellisen hitaat lisäykset
+ja poistot ylimmässä osaa puuta, mutta meillä pitäisi olla nopeat etsinnät.
+\newline \indent Yläpuun kompleksisuus halutaan pitää suurinpiirteisessä van Emde
+Boas -sommitelmassa. Van Emde Boas -sommitelma on käytännössä muokattu versio
+Prokopin sommitelmasta täydelliselle binääripuulle. Nimi tulee kuitenkin van
+Emde Boas tietorakenteesta, jota se muistuttaa. Van Emde Boas -sommitelman
+tärkeän ominaisuus on se, että millä tahansa yksityiskohtaisella tasolla
+katsoessa, jokainen rekursiivinen alipuu on tallennettu jatkuvassa
+muistilohkossa. Jotta voidaan pitää yläpuun kompleksisuus van Emde Boas
+-sommitelmassa niin ensin käytetään paino-tasapainotettua B-puuta. Sen avulla
+saadaan staattinen sommitelma muutettua dynaamiseksi. Käytetään avuksi dynaamisesti
+tasapainotetun hakupuun kahta tärkeätä ominaisuutta. Ensimmäinen on
+jälkeläisten jako pitääkseen elementit tasapainossa ja toiseksi tarvitaan
+vahvaa tasapainotusta. Jollekkin vakiolle \(d\), jokaisessa elementissä \(v\)
+korkeudessa \(h\) on \(O(d^h)\) jälkeläistä. Nämä kaksi ominaisuutta
+löytyy mm. tasapainotetusta B-puusta. Hyödyntämällä tietämämme saatiin aikaiseksi
+yläpuun haun muistisiirroksi \(O(1+\log_{B+1}N)\). Lisäyksien ja poistojen muistisiirto rajoiksi
+saatiin \(O(\log^2N)\).
+\newline \indent Keskiosa puuta tallentaa edustuselementit alemmasta osasta puuta, joista osa
+voi olla kummitus elementtejä kuten myös keskitason elementeistä osa voi olla.
+Myös yläosassa puuta voi olla kummituselementtejä. Keskitaso on implementoitu
+yhtenä pakattuna muistirakenteena, missä edustus elementit toimivat ryhmien
+erottimina muistissa. Alempipuu on taas joukko pakattuja muistirakenteita, jos
+tarvitaan optimaalista skannaus operaatiota. Muuten se voi olla implementoitu
+järjestämättöminä kokoelmina joukkoja. Näissä jokainen ryhmä on taas
+tallennettu muistiin jatkuvana osana jossain järjestyksessä. Nämä alueet on
+tallennettu muistiin saman kokoisina ja saa olla johonkin vakioon saakka tyhjänä.
+Lisäykset ja poistot joukoista tarkoittaa, että koko joukko uudelleen
+kirjoitetaan.
+\newline \indent Lopullinen puu koostuu siis aiemmin mainituista osista. Saadaan
+kaksi erilaista puuta riippuen tarpeesta, järjestetty tai järjestämätön B-puu.
+Järjestetty tukee skannausta optimaalisesti. Molemmissa puissa haku operaatio vaatii
+\(O(1+\log_{B+1}N)\) muistisiirtoa. Järjestetyn B-puun päivittäminen maksaa
+\(O(1+\log_{B+1}N+\tfrac{\log^2 N}{B})\) muistisiirtoja. Missä itsessään päivitys
+ilman hakua siis maksaa vain \(O(1+\tfrac{\log^2 N}{B})\). Järjestämättömässä B-puussa
+päivitys maksaa \(O(1+\log_{B+1}N)\) amortisoituja muistisiirtoja. Nämä puut edustava ensimmäisiä dynaamisia
+välimuistiriippumattomia B-puita.
+\newline \indent On olemassa myös erilaisia lähestymistapoja välimuistiriippumattomiin B-puihin.
+Yksi niistä perustuu ideaan bufferielementeistä. Käyttämättä epäsuoriaviittauksia
+ja säilyttämällä puun pakatussamuisti joukossa. Idea perustuu että voidaan säilyttää
+eri kokoista dataa yhdessä pakatussajoukossa. Tämä järjestetty puu sai seuraavat optimaaliset rajat:
+haku \(O(\log_{B+1}N)\) muistisiirtoa, päivittäminen \(O(\log_{B+1}N)\) amortisoituja muistisiirtoja, Skannata \(S\) määrä elementtejä
+vie \(O(1+S/B)\) amortisoituja muistisiirtoja.
+
+% \cite{esimerkki}.
+
+
+% --- Back matter ---
+%
+% bibtex is used to generate the bibliography. The babplain style
+% will generate numeric references (e.g. [1]) appropriate for theoretical
+% computer science. If you need alphanumeric references (e.g [Tur90]), use
+%
+% \bibliographystyle{babalpha}
+%
+% instead.
+
+% \bibliographystyle{babplain}
+% \bibliography{references-fi}
+
+
+\end{document}
