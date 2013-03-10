@@ -68,7 +68,7 @@
 % The following commands define the information used to generate title and
 % abstract pages. The following entries should be always specified:
 
-\title{Välimuistiriippumattomat algoritmit}
+\title{Välimuistiriippumaton malli}
 \author{Juho-Emil Antti Gävert}
 \date{\today}
 \level{Aine}
@@ -117,18 +117,53 @@
 
 % Write some science here.
 
-\cite{btree05}
-1\cite{prokop99}
-2\cite{coalgo}
+% \cite{btree05}
+% \cite{prokop99}
+% \cite{coalgo}
+
 \section{Johdanto}
+Algoritmeista puhuttaessa ensimmäiseksi tärkein asia on sen aikavaativuus.
+Aikavaativuus on algoritmeissa lähes aina se asia mikä kertoo algoritmin
+nopeuden.
+Muistinkäyttö on myös otettu huomioon ja yleensä mietimme, että paljonko
+muistia algoritmi käyttää. Toimiiko tämä sitten maailmassa, jossa tietokoneissa
+on kiintolevy, kenties puolijohdeasema, keskusmuistia ja vielä prosessorin
+välimuisti. Missä prosessorin välimuisti koostuu eri kokoisista ja
+nopeuksisista välimuisteista.
+% jaksottaja
+Tähän voidaan lisätä vielä kaikennäköiset verkkolevyt tai internetin.
+Tarkastellaan prosessorin välimuistia verkkolevyihin saakka niin huomataan
+, että mitä kauemmaksi siirrytään prosessorista niin latenssi kasvaa
+suuremmaksi, nopeus hidastuu ja muistin koko kasvaa. Mitä suuremmaksi latenssi
+kasvaa niin on ihanteellista, että otamme siitä kyseisestä muistista tarpeeksi
+suuren palan kerralla tarkasteluun. % ehkä kenties avaa aihetta enemmän?
+Haluamme datan olevan yhtenäisenä muistissa, koska näin voimme suoraan valita
+ison lohkon. Haluamme myös pitää muistilohkon koon pienimmän
+välimuistin kokoisena. Jos muistilohko on esimerkiksi liian suuri ja ei mahdu
+kerralla prosessoria lähimpään muistiin niin algoritmi kärsii jokaista
+muistilohkoa käsitellessä välimuistihudeista, koska se joutuu hakemaan tiedon
+välimuistista mihinkä muistilohko mahtuu.
+Välimuistihuti tapahtuu, kun haluttua muistilohkoa ei löytynyt välimuistista.
+Tällöin joudumme etsimään hitaammista muisteista tämän lohkon ja odottamaan sen
+saapumista. Tehokas tapa ratkaista tämä on kirjoittaa välimuistitietoinen
+algoritmi, joka siis tietää pienimmän välimuistin koon ja tällöin saa
+tietorakenteet mahtumaan pienimpään välimuistiin. Tälläiset algoritmit olettaa,
+välimuistin hierarkia ja koko ovat ennalta tiedossa. Välimuistitietoiset
+algoritmit ovat kuitenkin erittäin rajoittuneita, kun lähdetään vaihtamaan
+koko välimuisti hierarkia ja sen tasojen koot. Tähän on yritetty keksiä
+erilaisia malleja, mutta ne ovat luonteeltaan monimutkaisia ja hankalia.
+% insert lähde välimuistiriippumaton b-puut paperista?
+
+
+
 \section{Ihanteellinen välimuistimalli}
 Jotta voimme tutkia välimuistin monimutkaisuutta algoritmeissa niin tarvitsemme
 välimuistimallin. Tämä ihanteellinen välimuistimalli, kuten kuvassa 1, sisältää
 tietokoneen, joka koostuu 2-tasosesta muistihierarkiasta. Muistihierarkiaan
-kuuluu ihanteellinen välimuisti koostuen \(Z\) sanoista ja mielivaltaisen
+kuuluu välimuisti koostuen $ Z $ sanoista ja mielivaltaisen
 kokoisesta päämuistista. Myös huomioitava, että välimuistin sana koko on
 vakio, koska oikeassa tietokoneessakin se on jokin muuttumaton koko.
-\section{Matriisikertolasku algoritmi}
+\section{Välimuistiriippumaton matriisikertolasku}
 
 % --- Back matter ---
 %
