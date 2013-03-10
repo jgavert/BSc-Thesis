@@ -144,9 +144,9 @@ On siis syytä tallentaan algoritmin tiedot yhtenäisenä palana muistiin, mutta
 kuitenkin jaettuna pieniin muistilohkoihin. Jos muistilohko on liian suuri
 ja ei mahdu
 kerralla prosessoria lähimpänä olevaan välimuistiin niin algoritmi kärsii jokaista
-muistilohkoa käsitellessä välimuistihudeista. Tällöin prosessori joutuu hakemaan tiedon seuraavasta
-välimuistista mihinkä muistilohko mahtuu.
-Tarkemmin välimuistihuti tapahtuu, kun haluttua muistilohkoa ei löytynyt välimuistista.
+muistilohkoa käsitellessä välimuistihudeista, koska algoritmin käsittelemä
+muistilohko on suurempi kuin pienin välimuisti. Välimuistihudiksi siis kutsutaan tapahtumaa missä
+prosessori ei löydä välimuistista haluttua muistilohkoa ja joutuu tällöin odottamaan sen saapumista kauemmasta muistista.
 Joudumme siis etsimään hitaammista muisteista tämän lohkon ja odottamaan
 muistilohkon saapumista käytettäväksi. Tehokas tapa ratkaista tämä on
 kirjoittaa välimuistitietoinen algoritmi, joka siis tietää pienimmän
@@ -168,8 +168,24 @@ lähdetään vaihtamaan välimuisti hierarkiaa. Tähän on yritetty keksiä
 erilaisia malleja, mutta ne ovat luonteeltaan monimutkaisia ja hankalia. Niitä
 myös yhdistää se tekijä, että ne ovat riippuvia jostain muistihierarkian
 ominaisuudesta.
-
+% mm
 Tähän ongelmaan Prokop on vastannut teesissään\cite{prokop99}. Välimuistiriippumaton malli
+on vähintäänkin hyvä ratkasu tuottaa algoritmi muistihierarkialle, jonka yksityiskohtia ei tiedetä.
+Prokop on tarjonnut ratkaisun monille algoritmeille kuten matriisikertolasku- ja jakelujärjestämisalgoritmi.
+Matriisikertolaskua tarkastellaan myöhemmin yksityiskohtaisemmin.
+
+Välimuistiriippumattomien algoritmien tuottamiseen on pidettävä mielessä miltä
+algoritmin muistijälki näyttää. Esimerkiksi puu algoritmeissa
+on hyvä koota puu monista pienistä puista. Jos ei näin tehdä kun mennään solmusta toiseen niin
+harpataan muistissa suuren muistijoukon yli jokaisella kerralla. Voimme siis laittaa lähekkäin solmu ja sen lapset.
+Näin saadaan hillittyä tätä ilmiötä jonkin verran ja samalla vähennetään välimuistihudin tapahtumista.
+Tätä kutsutaan myös "jaa, ja valloita" lähestymistavaksi. Algoritmi siis itsessään jakaa ongelmaa tarpeeksi pieneksi
+ja jossain kohti se mahtuu välimuistiin. Ongelmaksi tämän jälkeen muodostuu tilallinen sijaitsevuus.
+Kun ongelmaa jaetaan palasiksi niin halutaan, että tämä pitää sen yhtenäisenä muistissa. Tärkein ominaisuus
+tilallisella sijaitsevuudella on se, että kun otetaan suuri muistilohko jostain muistista niin
+siihen mahtuu monta todennäköisesti läpikäytävää solmua.
+
+
 % insert lähde välimuistiriippumaton b-puut paperista?
 
 
@@ -177,9 +193,10 @@ Tähän ongelmaan Prokop on vastannut teesissään\cite{prokop99}. Välimuistiri
 \section{Ihanteellinen välimuistimalli}
 Tämä ihanteellinen välimuistimalli sisältää %lisää kuva ja maininta
 tietokoneen, joka koostuu 2-tasosesta muistihierarkiasta. Muistihierarkiaan
-kuuluu välimuisti koostuen $ Z $ sanoista ja mielivaltaisen
+kuuluu välimuisti koostuen $ M $ sanoista ja mielivaltaisen
 kokoisesta päämuistista. Myös huomioitava, että välimuistin sana koko on
 vakio, koska oikeassa tietokoneessakin se on jokin muuttumaton koko.
+Kutsumme yhtä muistilohkoa $B$:ksi ja oletamme myös, että prosessoria lähimpään välimuistiin mahtuu $M/B$ lohkoa.
 %\section{Välimuistiriippumaton matriisikertolasku}
 
 % --- Back matter ---
