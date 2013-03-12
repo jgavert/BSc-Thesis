@@ -126,7 +126,7 @@ muistia algoritmi käyttää. Toimiiko tämä sitten maailmassa, jossa tietokone
 on kiintolevy, kenties puolijohdeasema, keskusmuistia ja vielä prosessorin
 välimuisti. Missä prosessorin välimuisti koostuu eri kokoisista ja
 nopeuksisista välimuisteista.
-% jaksottaja
+% tauottaja
 Tähän voidaan lisätä vielä kaikennäköiset verkkolevyt.
 Tarkastellaan prosessorin välimuistia verkkolevyihin saakka niin huomataan,
 että mitä kauemmaksi siirrytään prosessorin välimuistista niin latenssi
@@ -135,20 +135,26 @@ suuremmaksi, nopeus hidastuu ja muistin koko kasvaa.
 
 Kun latenssi
 kasvaa niin on ihanteellista, että otamme siitä kyseisestä muistista tarpeeksi
-suuren muistilohkon kerralla tarkasteluun. Jos kysyisimme kokoajan pieniä lohkoja tarkasteltavaksi, joutuisimme maksamaan jokaisen lohkon kohalla sekä latenssiin että sen jälkeen tapahtuvaan siirtoon kestävä aika. Voisimme vain maksaa latenssin hinta kerran ja pyytää iso määrä tietoa muistista. Kun otamme muistista ison lohkon niin haluamme myös varmistaa, että saamme myös mahdollisimman paljon relevanttia tietoa algoritmin kannalta. % ehkä kenties avaisit aihetta enemmän?
-On siis syytä tallentaan algoritmin tiedot yhtenäisenä palana muistiin, mutta
-kuitenkin jaettuna pieniin muistilohkoihin. Jos muistilohko on liian suuri
-ja ei mahdu
+suuren muistilohkon kerralla tarkasteluun. Jos kysyisimme kokoajan pieniä
+lohkoja tarkasteltavaksi, joutuisimme maksamaan jokaisen lohkon kohalla
+sekä latenssiin että sen jälkeen tapahtuvaan siirtoon kestävä aika. Voisimme
+vain maksaa latenssin hinta kerran ja pyytää iso määrä tietoa muistista.
+Kun otamme muistista ison lohkon niin haluamme myös varmistaa, että saamme
+myös mahdollisimman paljon relevanttia tietoa algoritmin kannalta. On siis
+syytä tallentaan algoritmin tiedot yhtenäisenä palana muistiin, mutta kuitenkin
+jaettuna pieniin muistilohkoihin. Jos muistilohko on liian suuri ja ei mahdu
 kerralla prosessoria lähimpänä olevaan välimuistiin niin algoritmi kärsii jokaista
 muistilohkoa käsitellessä välimuistihudeista, koska algoritmin käsittelemä
-muistilohko on suurempi kuin pienin välimuisti. Välimuistihudiksi siis kutsutaan tapahtumaa missä
-prosessori ei löydä välimuistista haluttua muistilohkoa ja joutuu tällöin odottamaan sen saapumista kauemmasta muistista.
+muistilohko on suurempi kuin pienin välimuisti. Välimuistihudiksi siis
+kutsutaan tapahtumaa missä prosessori ei löydä välimuistista haluttua
+muistilohkoa ja joutuu tällöin odottamaan sen saapumista kauemmasta muistista.
 Joudumme siis etsimään hitaammista muisteista tämän lohkon ja odottamaan
 muistilohkon saapumista käytettäväksi. Tehokas tapa ratkaista tämä on
 kirjoittaa välimuistitietoinen algoritmi, joka siis tietää pienimmän
 välimuistin koon ja tällöin saa
 tietorakenteet mahtumaan pienimpään välimuistiin.
 
+%Väärä paikka muistinsiirrolle, termin nimikin väärin
 Tälläisten algoritmien erojen selvittämiseen tarvitsemme uuden analyysin
 nimeltä muistisiirtokompleksisuus. %KORJAA
 Muistisiirtokompleksisuus kertoo meille muistinsiirtojen määrästä ja
@@ -156,6 +162,7 @@ mahdollisista hudeista mitä jokin algoritmi tulee aiheuttamaan suorituksen
 aikana. Ennenkuin voimme analysoida
 algoritmien muistinsiirtovaativuuksia niin tarvitsemme muistimallin.
 
+%Tarkista tekstin sisällön paikkaansa pitävyys.
 Välimuistitietoiset algoritmit olettaa,
 että välimuistin hierarkia ja koko ovat ennalta tiedossa. Kokeilemalla voidaan
 selvittää optimaalinen muistilohko arvo algoritmille. Välimuistitietoiset
@@ -192,7 +199,10 @@ tietokoneen, joka koostuu 2-tasosesta muistihierarkiasta. Muistihierarkiaan
 kuuluu välimuisti koostuen $ M $ sanoista ja mielivaltaisen
 kokoisesta päämuistista. Välimuistin sana koko on
 vakio, koska oikeassakin tietokoneessa se on jonkin muuttumattoman vakion kokoinen.
-Kutsumme yhtä muistilohkoa $ B $:ksi ja oletamme prosessoria lähimpään välimuistiin mahtuvan $ M/B $ muistilohkoa.
+$ B $ on notaatio muistilohkolle. Välimuistin oletamme tarpeeksi isoksi:
+\[
+Z=\Omega(L^2).
+\]
 
 
 
