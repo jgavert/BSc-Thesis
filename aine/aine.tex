@@ -71,7 +71,7 @@
 \title{Välimuistiriippumaton malli}
 \author{Juho-Emil Antti Gävert}
 \date{\today}
-\level{Kypsyysnäyte}
+\level{Aine}
 \abstract{Tiivistelmä.}
 
 % The following can be used to specify keywords and classification of the paper:
@@ -107,15 +107,11 @@
 \maketitle        % title page
 %\makeabstract     % abstract page
 
-%\tableofcontents  % table of contents
-%\newpage          % clear page after the table of contents
+\tableofcontents  % table of contents
+\newpage          % clear page after the table of contents
 
 
 % --- Main matter ---
-
-%\section{Johdanto}
-
-% Write some science here.
 
 % \cite{btree05}
 % \cite{prokop99}
@@ -169,35 +165,54 @@ erilaisia malleja, mutta ne ovat luonteeltaan monimutkaisia ja hankalia. Niitä
 myös yhdistää se tekijä, että ne ovat riippuvia jostain muistihierarkian
 ominaisuudesta.
 % mm
-Tähän ongelmaan Prokop on vastannut teesissään\cite{prokop99}. Välimuistiriippumaton malli
-on vähintäänkin hyvä ratkasu tuottaa algoritmi muistihierarkialle, jonka yksityiskohtia ei tiedetä.
-Prokop on tarjonnut ratkaisun monille algoritmeille kuten matriisikertolasku- ja jakelujärjestämisalgoritmi.
-Matriisikertolaskua tarkastellaan myöhemmin yksityiskohtaisemmin.
-
-Välimuistiriippumattomien algoritmien tuottamiseen on pidettävä mielessä miltä
-algoritmin muistijälki näyttää. Esimerkiksi puu algoritmeissa
-on hyvä koota puu monista pienistä puista. Jos ei näin tehdä kun mennään solmusta toiseen niin
-harpataan muistissa suuren muistijoukon yli jokaisella kerralla. Voimme siis laittaa lähekkäin solmu ja sen lapset.
-Näin saadaan hillittyä tätä ilmiötä jonkin verran ja samalla vähennetään välimuistihudin tapahtumista.
-Tätä kutsutaan myös "jaa, ja valloita" lähestymistavaksi. Algoritmi siis itsessään jakaa ongelmaa tarpeeksi pieneksi
-ja jossain kohti se mahtuu välimuistiin. Ongelmaksi tämän jälkeen muodostuu tilallinen sijaitsevuus.
-Kun ongelmaa jaetaan palasiksi niin halutaan, että tämä pitää sen yhtenäisenä muistissa. Tärkein ominaisuus
-tilallisella sijaitsevuudella on se, että kun otetaan suuri muistilohko jostain muistista niin
-siihen mahtuu monta todennäköisesti läpikäytävää solmua.
-
+%Tähän ongelmaan Prokop on vastannut teesissään\cite{prokop99}. Välimuistiriippumaton malli
+%on vähintäänkin hyvä ratkasu tuottaa algoritmi muistihierarkialle, jonka yksityiskohtia ei tiedetä.
+%Prokop on tarjonnut ratkaisun monille algoritmeille kuten matriisikertolasku- ja jakelujärjestämisalgoritmi.
+%Matriisikertolaskua tarkastellaan myöhemmin yksityiskohtaisemmin.
+%
+%Välimuistiriippumattomien algoritmien tuottamiseen on pidettävä mielessä miltä
+%algoritmin muistijälki näyttää. Esimerkiksi puu algoritmeissa
+%on hyvä koota puu monista pienistä puista. Jos ei näin tehdä kun mennään solmusta toiseen niin
+%harpataan muistissa suuren muistijoukon yli jokaisella kerralla. Voimme siis laittaa lähekkäin solmu ja sen lapset.
+%Näin saadaan hillittyä tätä ilmiötä jonkin verran ja samalla vähennetään välimuistihudin tapahtumista.
+%Tätä kutsutaan myös "jaa, ja valloita" lähestymistavaksi. Algoritmi siis itsessään jakaa ongelmaa tarpeeksi pieneksi
+%ja jossain kohti se mahtuu välimuistiin. Ongelmaksi tämän jälkeen muodostuu tilallinen sijaitsevuus.
+%Kun ongelmaa jaetaan palasiksi niin halutaan, että tämä pitää sen yhtenäisenä muistissa. Tärkein ominaisuus
+%tilallisella sijaitsevuudella on se, että kun otetaan suuri muistilohko jostain muistista niin
+%siihen mahtuu monta todennäköisesti läpikäytävää solmua.
 
 % insert lähde välimuistiriippumaton b-puut paperista?
 
 
 
 \section{Ihanteellinen välimuistimalli}
+
 Tämä ihanteellinen välimuistimalli sisältää %lisää kuva ja maininta
 tietokoneen, joka koostuu 2-tasosesta muistihierarkiasta. Muistihierarkiaan
 kuuluu välimuisti koostuen $ M $ sanoista ja mielivaltaisen
 kokoisesta päämuistista. Myös huomioitava, että välimuistin sana koko on
 vakio, koska oikeassa tietokoneessakin se on jokin muuttumaton koko.
-Kutsumme yhtä muistilohkoa $B$:ksi ja oletamme myös, että prosessoria lähimpään välimuistiin mahtuu $M/B$ lohkoa.
-%\section{Välimuistiriippumaton matriisikertolasku}
+Kutsumme yhtä muistilohkoa $ B $:ksi ja oletamme prosessoria lähimpään välimuistiin mahtuvan $ M/B $ lohkoa.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Välimuistiriippumaton matriisikertolasku}
+
 
 % --- Back matter ---
 %
