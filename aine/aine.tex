@@ -197,7 +197,8 @@ tietokoneen, joka koostuu 2-tasosesta muistihierarkiasta. Muistihierarkiaan
 kuuluu välimuisti koostuen $ M $ sanoista ja mielivaltaisen
 kokoisesta päämuistista. Välimuistin sana koko on
 vakio, koska oikeassakin tietokoneessa se on jonkin muuttumattoman vakion kokoinen.
-Muistilohkoon mahtuu $ B $ yhtenäisiä sanoja. Välimuistin oletamme tarpeeksi suureksi:
+Muistin rivipituus on merkitty $B$:nä, myös kutsutaan muistilohkoksi.
+Välimuistin oletamme tarpeeksi suureksi:
 \[
 M=\Omega(B^2).
 \]
@@ -216,6 +217,9 @@ Algoritmia joka ottaa sisäänsä $n$ määrän työtä, mitataan sen työn moni
 Eli algoritmin tavanomainen ajoaika abstraktissa RAM-koneessa.
 Toinen mitta on välimuisti kompleksisuus $Q(n;B,M)$ eli monta välimuistihutia aiheutuu funktion koolta M ja rivi pituudelta B.
 Käytämme $Q(n)$ notaatiota mikäli $M$ ja $B$ ovat selkeitä kontekstissa.
+
+Toteamme algoritmin välimuistitietoiseksi mikäli se sisältää parametreja, joilla voidaan
+virittää algoritmin välimuistimonimutkaisuutta tietylle välimuistikoolle tai rivipituudelle.
 
 
 
