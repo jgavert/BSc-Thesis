@@ -207,9 +207,15 @@ Ihanteellinen välimuistimalli on täysin assosiatiivinen.
 Välimuistissa voidaan siis säilyttää muistirivejä missätahansa.
 Välimuistin tullessa täydeksi joudutaan korvaamaan aiempia muistirivejä.
 Ihanteellinen välimuistimalli käyttää tähän parasta mahdollista strategiaa
-vaihtaa muistirivi, johon tarvitaan pääsyä kauimpana tulevaisuudessa.
+vaihtaa muistirivi, jota käytetään kauimpana tulevaisuudessa. %puuttuu cite vink 7
 Tämä takaa myös täydellisen ajallisen sijainnin hyväksikäytön.
 %lisää tekstiä?
+
+Ihanteellinen välimuistimalli käyttää kahta eri mittaa analysoidakseen algoritmeja.
+Algoritmia joka ottaa sisäänsä $n$ määrän työtä, mitataan sen työn monimutkaisuudella $W(n)$.
+Eli algoritmin tavanomainen ajoaika abstraktissa RAM-koneessa.
+Toinen mitta on välimuisti kompleksisuus $Q(n;B,M)$ eli monta välimuistihutia aiheutuu funktion koolta M ja rivi pituudelta B.
+Käytämme $Q(n)$ notaatiota mikäli $M$ ja $B$ ovat selkeitä kontekstissa.
 
 
 
