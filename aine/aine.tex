@@ -156,7 +156,7 @@ tietorakenteet mahtumaan pienimpään välimuistiin.
 
 %Väärä paikka muistinsiirrolle, termin nimikin väärin
 Tälläisten algoritmien erojen selvittämiseen tarvitsemme analyysin
-nimeltä muistisiirtokompleksisuus. %KORJAA
+nimeltä muistisiirtokompleksisuus. %da fuck?
 Muistisiirtokompleksisuus kertoo meille muistinsiirtojen määrästä ja
 mahdollisista hudeista mitä jokin algoritmi tulee aiheuttamaan suorituksen
 aikana. Tarvitsemme muistimallin algoritmien muistinsiirtovaativuuksien analysoimiseen.
@@ -168,8 +168,7 @@ selvittää optimaalinen muistilohko arvo algoritmille. Välimuistitietoiset
 algoritmit ovat kuitenkin erittäin rajoittuneita ja ovat ongelmissa, kun
 lähdetään vaihtamaan välimuisti hierarkiaa. Tähän on yritetty keksiä
 erilaisia malleja, mutta ne ovat luonteeltaan monimutkaisia ja hankalia. Niitä
-myös yhdistää se tekijä, että ne ovat riippuvia jostain muistihierarkian
-ominaisuudesta.
+myös yhdistää riippuvuus jostain muistihierarkian ominaisuudesta.
 % mm
 %Tähän ongelmaan Prokop on vastannut teesissään\cite{prokop99}. Välimuistiriippumaton malli
 %on vähintäänkin hyvä ratkasu tuottaa algoritmi muistihierarkialle, jonka yksityiskohtia ei tiedetä.
@@ -193,16 +192,24 @@ ominaisuudesta.
 
 \section{Ihanteellinen välimuistimalli}
 
-Ihanteellinen välimuistimalli sisältää %lisää kuva ja maininta
+Ihanteellinen välimuistimalli sisältää
 tietokoneen, joka koostuu 2-tasosesta muistihierarkiasta. Muistihierarkiaan
 kuuluu välimuisti koostuen $ M $ sanoista ja mielivaltaisen
 kokoisesta päämuistista. Välimuistin sana koko on
 vakio, koska oikeassakin tietokoneessa se on jonkin muuttumattoman vakion kokoinen.
-$ B $ on notaatio muistilohkolle. Välimuistin oletamme tarpeeksi isoksi:
+Muistilohkoon mahtuu $ B $ yhtenäisiä sanoja. Välimuistin oletamme tarpeeksi suureksi:
 \[
-Z=\Omega(L^2).
+M=\Omega(B^2).
 \]
+%onko lisättävää, käy läpi, kuva?
 
+Ihanteellinen välimuistimalli on täysin assosiatiivinen.
+Välimuistissa voidaan siis säilyttää muistirivejä missätahansa.
+Välimuistin tullessa täydeksi joudutaan korvaamaan aiempia muistirivejä.
+Ihanteellinen välimuistimalli käyttää tähän parasta mahdollista strategiaa
+vaihtaa muistirivi, johon tarvitaan pääsyä kauimpana tulevaisuudessa.
+Tämä takaa myös täydellisen ajallisen sijainnin hyväksikäytön.
+%lisää tekstiä?
 
 
 
