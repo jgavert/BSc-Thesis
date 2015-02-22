@@ -28,6 +28,7 @@
 \usepackage{microtype}
 \usepackage{amsfonts,amsmath,amssymb,amsthm,booktabs,color,enumitem,graphicx}
 \usepackage[pdftex,hidelinks]{hyperref}
+\usepackage{subfiles}
 
 % Automatically set the PDF metadata fields
 \makeatletter
@@ -188,10 +189,41 @@ myös yhdistää riippuvuus jostain muistihierarkian ominaisuudesta.
 
 % insert lähde välimuistiriippumaton b-puut paperista?
 
+\section{Välimuisti}
 
+Tietokoneissa on erilaisia muisteja paljon. Prosessorista lähtien löydämme
+prosessorin ytimien omat rekisterit. Seuraavana vastaan tulee pienin ja nopein
+välimuisti L1. Tässä välimuistissa on erikoista että se on yleisesti jaettu
+kahtia. Ensimmäinen puolisko sisältää tietueita ja toisessa puoliskossa on
+pelkästään käskyjä. Siirtyessämme L2 välimuistiin, tätä erottelua ei enää tehdä.
+Välimuisti koostuu tietuista ja käskyihin liittyvästä informaatiosta. L2
+välimuisti on myös yleisesti viimeinen muisti, joka sijaitsee erikseen
+jokaisella fyysisellä ytimellä. Huomiodaan myös, että yhdellä fyysisellä
+ytimellä voi sijaita enemmän kuin yksi säije.
+Mitä enemmän säikeitä ytimeä kohden on niin moneen osaa L1 muisti jaetaan. L2
+välimuisti on ytimen kaikille säikeille yhteistä muistia. Ja kuten L2 välimuisti on
+jaettu kaikkien ytimen sisäisten säikeiden kanssa niin L3 muisti on
+jaettu kaikkien fyysisten ytimien välillä. Välimuisteja nykyisissä koneissa on
+vielä vain 3 tasoa. Alkaen L1 muistista, L2 muisti on suurempi ja hitaampi ja
+viimeisenä on L3 muisti suurimpana ja vielä hitaampana.
+  Välimuistien jälkeen saavumme keskusmuistiin. Keskusmuistia on yleisesti
+ottaen reilusti enemmän jos vertaamme sen kokoa välimuisteihin. Kun katsomme
+vaikka intelin i7-3770k %insert real memory information here.
+
+Näihin verrattuna keskusmuistia on tyypillisesti 8 gigaa joka on reilusti
+enemmän kuin %insert value here.
+Tämä on kuitenkin jo todella hidasta muistia verrattuna mihinkä tahansa
+välimuistiin ja on enemmänkin optimoitu kokoon ja nopeuteen latenssin hinnalla.
+%selitä latenssi
+Kovalevyt ja kiinteä tila levyt %ssd :D
+tulevat tämän jälkeen ja viimeisenä on verkkolevyt ja muut vastaavat.
+
+% miten tuoda cacheline eli välimuisti rivi tai sana
+% miten myös selittää paged eli sivut
 
 \section{Ihanteellinen välimuistimalli}
 
+% vanha versio
 Ihanteellinen välimuistimalli sisältää
 tietokoneen, joka koostuu 2-tasosesta muistihierarkiasta. Muistihierarkiaan
 kuuluu välimuisti koostuen $ M $ sanoista ja mielivaltaisen
@@ -238,7 +270,6 @@ virittää algoritmin välimuistimonimutkaisuutta tietylle välimuistikoolle tai
 
 
 \section{Välimuistiriippumaton matriisikertolasku}
-
 
 % --- Back matter ---
 %
