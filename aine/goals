@@ -1,0 +1,47 @@
+Sprint: (3 days! try to get rough text ready by wed night. tuesday would be bonus!)
+  - Write premilinary introductions for cpu cache and ideal cache model
+  - Start writing analysis for the easiest problems, mergesort and matrix multi
+
+after sprint..
+Research:
+  - find more mergesort like, easy to understand, cacheobliviously solved problems
+  - Read the analysis parts of the mergesort and matrixmulti many times.
+  - find more about tics (the latex grafix library)
+  - find how to get nice graphs(tikz) on latex
+
+
+
+highlevel Plan for intermediate goal
+
+target and page amount
+
+Introduction,     short, about 1 page.
+CPU caches, as much as needed, important anyway
+ideal cachemodel, short, about 1 page.
+Matrix multiplication, long, probably 2,5 pages.
+cache oblivious mergesort, medium, 1 page.
+cache oblivious b-trees, long, 6 pages atleast. involves tons of subproblems
+
+bonus: Visual material for above: atleast 2 pages worth could be prepared
+
+without b-trees we get, 7,5 for text with rest to be 2,5 of visual material.
+
+
+notes: need to go through divide-and-conquer basic idea.
+       and how that helps us to solve problems.
+
+goals for paper: successfully explain van-emdeboas layout and how that helps
+to solve problems cache-obliviously. Divide and conquer is central idea also.
+Point out that caches need attention and also provide the reader the ability
+to read other cache-oblivious papers and understand the analysis behind them.
+
+Biggest problems for the thesis:
+- No idea how to get pretty comparison results shown or how to use tikz
+  high priority problem
+- Write the analysis parts for each problem. This is the biggest problem and
+  also the most important. Without them, there is no paper. They should be
+  written as soon as possible. for now, ignoring the b-trees.
+
+
+
+
